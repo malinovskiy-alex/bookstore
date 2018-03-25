@@ -1,4 +1,4 @@
-package com.example.bookstore.security;
+package com.example.bookstore.config.security;
 
 import java.util.Arrays;
 
@@ -41,7 +41,7 @@ public class BookstoreSecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
   @Bean
-  PasswordEncoder passwordEncoder() {
+  public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
 
@@ -49,7 +49,7 @@ public class BookstoreSecurityConfig extends WebSecurityConfigurerAdapter {
   CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
     configuration.setAllowedOrigins(Arrays.asList("*"));
-    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT"));
+    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT", "PATCH"));
     configuration.setAllowedHeaders(
       Arrays.asList("Content-Type", "Authorization", "X-Requested-With", "accept", "Origin",
         "Access-Control-Request-Method",
