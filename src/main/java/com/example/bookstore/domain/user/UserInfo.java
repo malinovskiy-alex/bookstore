@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.bookstore.deserializer.BirthdayDateDeserializer;
 import com.example.bookstore.serializer.BirthdayDateSerializer;
-import com.example.bookstore.serializer.GenderSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -32,13 +33,13 @@ public class UserInfo implements UserDetails {
   private Long id;
   private String username;
   private String email;
+  @JsonIgnore
   private String password;
   @JsonSerialize(using = BirthdayDateSerializer.class)
   @JsonDeserialize(using = BirthdayDateDeserializer.class)
   private LocalDate birthday;
-  @OneToOne
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "gender_id")
-  @JsonSerialize(using = GenderSerializer.class)
   private Gender gender;
 
   @Override

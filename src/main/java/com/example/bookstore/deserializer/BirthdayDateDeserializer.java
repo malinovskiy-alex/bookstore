@@ -2,7 +2,6 @@ package com.example.bookstore.deserializer;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -35,7 +34,7 @@ public class BirthdayDateDeserializer extends StdDeserializer<LocalDate> {
         Integer month = node.get("month").asInt();
         if (node.has("day")) {
           Integer date = node.get("day").asInt();
-          return LocalDateTime.of(year, month, date, 0, 0).toLocalDate();
+          return LocalDate.of(year, month, date);
         }
       }
     }
