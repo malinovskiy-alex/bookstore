@@ -23,6 +23,8 @@ public class Book {
   private Long id;
   private String name;
   private BigDecimal price;
+  private String bookImageUrl;
+  private Boolean isHidden;
   private Integer count;
   @OneToMany(mappedBy = "book")
   private List<BookOrder> bookOrders;
