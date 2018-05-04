@@ -1,5 +1,7 @@
 package com.example.bookstore.domain.user;
 
+import java.util.ArrayList;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,10 +17,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    UserDetails user = userRepository.findByEmail(username);
+    UserInfo user = userRepository.findByEmail(username);
     if (user == null) {
       throw new UsernameNotFoundException("User is not found.");
     }
-    return user;
+    return new BookstoreUserDetails(user.getEmail(), user.getPassword(), new ArrayList<>());
   }
 }

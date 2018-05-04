@@ -20,6 +20,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableGlobalMethodSecurity
 public class BookstoreSecurityConfig extends WebSecurityConfigurerAdapter {
+
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()

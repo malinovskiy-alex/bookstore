@@ -12,11 +12,15 @@ import javax.persistence.Table;
 
 import com.example.bookstore.domain.order.BookOrder;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Table(name = "book")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Book {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +31,5 @@ public class Book {
   private Boolean isHidden;
   private Integer count;
   @OneToMany(mappedBy = "book")
-  private List<BookOrder> bookOrders;
+  private List<BookOrder> books;
 }
