@@ -1,6 +1,7 @@
 insert into user_gender(id, name) VALUES (1, 'Male');
 insert into user_gender(id, name) VALUES (2, 'Female');
-insert into user_info(id, username, birthday, email, password, gender_id) VALUES (1, 'Alex Malinovskiy', '2018-01-01', 'alex@ukr.net', '$2a$10$Fq7gV.EqR8IHs2urLtFmKOTgabEtCa7bXrL0vI3B9tJQSuNREcp4C', 1);
+insert into user_info(id, username, birthday, email, password, gender_id) VALUES (1, 'Alex Malinovskiy', '2018-01-01', 'alex@ukr.net', '$2a$10$mx0sBn.ysrG8n5xsEIUFqOwQ4Kbx3m0N5UYpK9fGiJDr2EXnfcV2C', 1);
+-- password is 1111--
 
 
 INSERT INTO book (id, name, price, book_image_url, is_hidden, count) VALUES (1, 'The Hunger Games', 100, '', FALSE, 4)
